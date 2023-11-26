@@ -109,7 +109,7 @@ regressor_weekly.fit(X_train_weekly, y_train_weekly)
 y_pred_weekly = regressor_weekly.predict(X_test_weekly)
 
 # Streamlit app
-st.title('Sales Performance Evaluation')
+st.title('Sales Analysis and Performance Evaluation')
 
 # Display sales by general product category
 st.header('Sales by General Product Category')
@@ -137,14 +137,16 @@ result_weekly = seasonal_decompose(time_sales_weekly.set_index('order_purchase_t
 
 # Display the decompositions and residuals for monthly trends
 st.header('Seasonal Decomposition (Monthly)')
-st.line_chart(result_monthly.observed)
+
 st.write("**Observed (Monthly)**")
+st.line_chart(result_monthly.observed)
 
-st.line_chart(result_monthly.trend)
 st.write("**Trend (Monthly)**")
+st.line_chart(result_monthly.trend)
 
-st.line_chart(result_monthly.seasonal)
 st.write("**Seasonal (Monthly)**")
+st.line_chart(result_monthly.seasonal)
+
 
 # Display the residuals for monthly trends using Matplotlib
 st.header('Residual Graph (Monthly)')
@@ -178,14 +180,16 @@ st.pyplot(fig_monthly_regression)
 
 # Display the decompositions and residuals for weekly trends
 st.header('Seasonal Decomposition (Weekly)')
-st.line_chart(result_weekly.observed)
+
 st.write("**Observed (Weekly)**")
+st.line_chart(result_weekly.observed)
 
-st.line_chart(result_weekly.trend)
 st.write("**Trend (Weekly)**")
+st.line_chart(result_weekly.trend)
 
-st.line_chart(result_weekly.seasonal)
 st.write("**Seasonal (Weekly)**")
+st.line_chart(result_weekly.seasonal)
+
 
 # Display the residuals for weekly trends using Matplotlib
 st.header('Residual Graph (Weekly)')
